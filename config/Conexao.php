@@ -1,5 +1,4 @@
 <?php
-
 class Conexao {
 
     public static function getConexao(){

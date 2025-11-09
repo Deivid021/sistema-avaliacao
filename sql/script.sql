@@ -8,14 +8,14 @@ CREATE TABLE setor (
 CREATE TABLE dispositivo (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    status BOOLEAN DEFAULT TRUE,
+    status SMALLINT DEFAULT 0,
     id_setor INT NOT NULL REFERENCES setor(id) ON DELETE CASCADE
 );
 
 CREATE TABLE pergunta (
     id SERIAL PRIMARY KEY,
     texto TEXT NOT NULL,
-    status BOOLEAN DEFAULT TRUE
+    status SMALLINT DEFAULT 0
 );
 
 CREATE TABLE avaliacao (
