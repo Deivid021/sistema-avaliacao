@@ -5,12 +5,12 @@
     class AvaliacaoController {
 
         public function exibeFormulario() {
-            Pergunta::listarPergunta();
+            $perguntas = Pergunta::listarPergunta();
             include __DIR__ . '/../views/Formulario.php';
         }
 
         public function enviaAvaliacao() {
-            Avaliacao::salvarAvaliacao($_POST);
+            $dados = Avaliacao::salvarAvaliacao($_POST);
             include __DIR__ . '/../views/Agradecimento.php';
         }
     }
