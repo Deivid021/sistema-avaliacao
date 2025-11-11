@@ -5,13 +5,19 @@
     class AvaliacaoController {
 
         public function exibeFormulario() {
-            $perguntas = Pergunta::listarPergunta();
-            include __DIR__ . '/../views/Formulario.php';
+            include __DIR__ . '/../views/Formulario.html';
         }
 
         public function enviaAvaliacao() {
-            $dados = Avaliacao::salvarAvaliacao($_POST);
+            $dados = json_decode($_POST['respostas'], true);
+            Avaliacao::salvarAvaliacao($dados);
             include __DIR__ . '/../views/Agradecimento.php';
+        }
+
+
+        public function listarPerguntas() {
+            header('Content-Type: application/json');
+            echo json_encode(Pergunta::listarPergunta());
         }
     }
 ?>
