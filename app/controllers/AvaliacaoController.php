@@ -7,17 +7,17 @@
         public function exibeFormulario() {
             include __DIR__ . '/../views/Formulario.html';
         }
-
-        public function enviaAvaliacao() {
-            $dados = json_decode($_POST['respostas'], true);
-            Avaliacao::salvarAvaliacao($dados);
-            include __DIR__ . '/../views/Agradecimento.php';
+        
+        public function listarPerguntas() {
+            header('Content-Type: application/json'); // define o tipo de conteudo como JSON
+            echo json_encode(Pergunta::listarPergunta()); // retorna a lista de perguntas em formato JSON
         }
 
-
-        public function listarPerguntas() {
-            header('Content-Type: application/json');
-            echo json_encode(Pergunta::listarPergunta());
+        public function enviaAvaliacao() {
+            $dados = json_decode($_POST['respostas'], true); // transforma JSON em array associativo
+            $feedback = isset($_POST['feedback']) ? $_POST['feedback'] : null;
+            Avaliacao::salvarAvaliacao($dados, $feedback);
+            echo json_encode(['status' => 'sucesso']); // retorna uma resposta de sucesso em JSON
         }
     }
 ?>
