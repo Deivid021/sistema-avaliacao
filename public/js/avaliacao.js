@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             for (let indice = 0; indice <= 10; indice++) {
                 const botaoNumerico = document.createElement('button');
                 botaoNumerico.textContent = indice;
+                botaoNumerico.classList.add('botao-resposta');
                 botaoNumerico.addEventListener('click', () => salvarResposta(pergunta.id, indice));
                 botoesEl.appendChild(botaoNumerico);
             }
@@ -24,9 +25,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         function mostrarFeedback() {
             
             perguntaEl.innerHTML = `
-                <h2>Deseja deixar um feedback?</h2>
-                <textarea id="feedback" placeholder="Deixe seu feedback (opcional)"></textarea>
-                <button id="enviarFeedback">Enviar Feedback</button>
+                <h2 class="titulo-feedback">Deseja deixar um feedback?</h2>
+                <textarea id="feedback" class="campo-feedback" placeholder="Deixe seu feedback (opcional)"></textarea>
+                <button id="enviarFeedback" class="botao-enviar">Enviar Feedback</button>
             `;
             botoesEl.innerHTML = '';
 

@@ -1,0 +1,137 @@
+/* ===== Estilos Gerais ===== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fb;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    color: #444;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* ===== Container principal ===== */
+#conteiner {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+#pergunta h2 {
+    font-size: 1.3rem;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* ===== Botões numéricos ===== */
+#botoes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* impede quebra de linha em tablets */
+    overflow-x: auto;  /* se for muito pequeno, deixa rolar horizontalmente */
+    gap: 10px;
+    padding-bottom: 5px;
+}
+
+.botao-resposta {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    min-width: 45px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+    flex-shrink: 0; /* evita encolher quando rola */
+}
+
+.botao-resposta:hover {
+    background-color: #43a047;
+    transform: scale(1.05);
+}
+
+/* ===== Feedback ===== */
+.titulo-feedback {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.campo-feedback {
+    width: calc(100% - 30px); /* cria espaço lateral */
+    height: 110px;
+    padding: 14px; /* mais confortável pra digitar */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: none; /* impede redimensionar */
+    margin: 0 auto 18px auto; /* centraliza e dá espaço embaixo */
+    font-size: 1rem;
+    font-family: inherit;
+    display: block;
+}
+
+.campo-feedback:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+}
+
+.botao-enviar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.botao-enviar:hover {
+    background-color: #43a047;
+    transform: scale(1.05);
+}
+
+/* ===== Texto final ===== */
+p em {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+    #conteiner {
+        width: 95%;
+        padding: 20px 15px;
+    }
+
+    #botoes {
+        flex-wrap: wrap; /* só quebra linha em telas pequenas */
+    }
+
+    .botao-resposta {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
+
+    .campo-feedback {
+        width: calc(100% - 20px);
+        height: 90px;
+    }
+}
+
