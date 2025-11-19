@@ -5,7 +5,7 @@
     class AvaliacaoController {
 
         public function exibeFormulario() {
-            include __DIR__ . '/../views/Formulario.html';
+            include __DIR__ . '/../views/public/formulario.html';
         }
         
         public function listarPerguntas() {
@@ -17,7 +17,6 @@
             $dados = json_decode($_POST['respostas'], true); // transforma JSON em array associativo
             $feedback = isset($_POST['feedback']) ? $_POST['feedback'] : null;
             Avaliacao::salvarAvaliacao($dados, $feedback);
-            echo json_encode(['status' => 'sucesso']); // retorna uma resposta de sucesso em JSON
         }
     }
 ?>

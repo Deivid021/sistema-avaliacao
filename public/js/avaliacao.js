@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         function mostrarFeedback() {
-            
+
             perguntaEl.innerHTML = `
                 <h2 class="titulo-feedback">Deseja deixar um feedback?</h2>
                 <textarea id="feedback" class="campo-feedback" placeholder="Deixe seu feedback (opcional)"></textarea>
@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 perguntaEl.innerHTML = `<h2>O estabelecimento agradece sua resposta!</h2>
                                         <p>Ela é muito importante para nós e nos ajuda a melhorar continuamente nossos serviços.</p>`;
                 botoesEl.innerHTML = '';
+
+                setTimeout(() => {
+                    window.location.href = "../../index.php";
+                }, 5000);
             });
         }
 

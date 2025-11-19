@@ -9,6 +9,14 @@
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public static function inserirPergunta($texto, $status = 1) {
+            $con = Conexao::getConexao();
+            $sql = "INSERT INTO pergunta (texto, status) VALUES (:texto, :status);";
+            $stmt = $con->prepare($sql);
+            $stmt->execute([':texto' => $texto,
+                            ':status' => $status]);
+        }
     }
 
     // $init = Pergunta::listarPergunta();
