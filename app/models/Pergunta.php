@@ -17,11 +17,27 @@
             $stmt->execute([':texto' => $texto,
                             ':status' => $status]);
         }
+
+        public static function atualizarPergunta($id, $texto, $status) {
+            $con = Conexao::getConexao();
+            $sql = "UPDATE pergunta SET texto = :texto, status = :status WHERE id = :id;";
+            $stmt = $con->prepare($sql);
+            $stmt->execute([':id' => $id,
+                            ':texto' => $texto,
+                            ':status' => $status]);
+        }
+
+        public static function deletarPergunta($id, $texto, $status) {
+            $con = Conexao::getConexao();
+            $sql = "DELETE FROM pergunta WHERE id = :id;";
+            $stmt = $con->prepare($sql);
+            $stmt->execute([':id' => $id]);
+        }
     }
 
     // $init = Pergunta::listarPergunta();
     // foreach ($init as $valor) {
     //     echo "ID: {$valor['id']} - Texto: {$valor['texto']} - Status: {$valor['status']}<br>";
     // }
-    
+
 ?>
