@@ -1,46 +1,34 @@
 <?php
 require_once __DIR__ . '/app/core/Auth.php';
+require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
 
 Auth::exigirLogin();
 
 switch ($route) {
-
     case 'pergunta/listar':
-        require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
-        $c = new PerguntaController();
-        $c->listar();
+        $controller->listar();
         break;
 
     case 'pergunta/criar':
-        require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
-        $c = new PerguntaController();
-        $c->criar();
+        $controller->criar();
         break;
 
     case 'pergunta/salvar':
-        require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
-        $c = new PerguntaController();
-        $c->salvar();
+        $controller->salvar();
         break;
 
     case 'pergunta/editar':
-        require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
-        $c = new PerguntaController();
-        $c->editar();
+        $controller->editar();
         break;
 
     case 'pergunta/atualizar':
-        require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
-        $c = new PerguntaController();
-        $c->atualizar();
+        $controller->atualizar();
         break;
 
     case 'pergunta/excluir':
-        require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
-        $c = new PerguntaController();
-        $c->excluir();
+        $controller->excluir();
         break;
 
     default:
-        echo "Rota não encontrada";
+        $controller->exibeErro();
 }

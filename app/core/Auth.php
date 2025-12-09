@@ -25,7 +25,7 @@ class Auth {
 
     public static function exigirLogin() {
         if (!self::estaLogado()) {
-            header("Location: /admin/login.php");
+            header("Location: app/views/admin/login.php");
             exit;
         }
     }
