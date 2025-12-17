@@ -1,10 +1,25 @@
 <?php
 require_once __DIR__ . '/app/core/Auth.php';
 require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
+require_once __DIR__ . '/app/controllers/admin/LoginController.php';
 
-Auth::exigirLogin();
+// Auth::exigirLogin();
 
-switch ($route) {
+$route = new LoginController();
+
+    switch ($_GET['route'] ?? 'login') {
+        case 'login/autenticar':
+            $route->autenticarUsuario();
+        break;
+
+        default:
+            $route->index();
+        break;
+    }
+
+
+    
+/*
     case 'pergunta/listar':
         $controller->listar();
         break;
@@ -30,5 +45,8 @@ switch ($route) {
         break;
 
     default:
-        $controller->exibeErro();
+    $controller->exibeErro();
 }
+
+*/
+?>

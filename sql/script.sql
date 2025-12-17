@@ -15,7 +15,8 @@ CREATE TABLE dispositivo (
 CREATE TABLE pergunta (
     id SERIAL PRIMARY KEY,
     texto TEXT NOT NULL,
-    status SMALLINT DEFAULT 0
+    status SMALLINT DEFAULT 0,
+    ordem SMALLINT
 );
 
 CREATE TABLE avaliacao (
@@ -32,3 +33,10 @@ CREATE TABLE usuario (
     login VARCHAR(50) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
+
+INSERT INTO pergunta (texto, status, ordem) 
+     VALUES ('Em uma escala de 1 a 10 quanto você recomendaria a um amigo ou familiar?', 1, 1),
+            ('Em uma escala de 1 a 10 quanto gostou dos nossos serviços?', 1, 2);
+
+INSERT INTO usuario (login, senha) 
+     VALUES ('admin', 'adm');

@@ -7,15 +7,15 @@ if (isset($_GET['acao'])) {
     switch ($_GET['acao']) {
         case 'salvar':
             $controller->enviaAvaliacao();
-            break;
+        break;
 
         case 'listar':
             $controller->listarPerguntas();
-            break;
+        break;
 
         default:
             $controller->exibeFormulario();
-            break;
+        break;
     }
 } else {
     $controller->exibeFormulario();
