@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . "/../../core/Auth.php";
+require_once __DIR__ . '/../../models/admin.php';
 
 class LoginController {
 
@@ -7,19 +9,22 @@ class LoginController {
     }
 
     public function autenticarUsuario() {
-        // require_once __DIR__ . "/../../models/admin.php";
-        require_once __DIR__ . "/../../core/Auth.php";
 
-        // Auth::logar();
+        Auth::iniciarSessao();
 
         $user = $_POST['user'];
         $pass = $_POST['pass'];
 
-        if ($user == 'adm' && $pass == 'pass') {
-            // $_SESSION['admin_id'] = $admin['id'];
+        $admin = Admin::buscarPorUsuario($user);
+
+        if ($admin && password_verify($pass, $admin['pass'])) {
+        
             header("Location: app/views/admin/perguntas/listar.php");
-        } else {
-            header("Location: /admin.php?route=login&erro=1");
-        }
+            exit;
+        } 
+        
+        // header("Location: /admin.php?route=login&erro=1");
+        echo 'sou burro';
+        exit;
     }
 }
