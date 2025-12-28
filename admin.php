@@ -12,6 +12,11 @@ $route = new LoginController();
             $route->autenticarUsuario();
         break;
 
+        case 'dashboard':
+            Auth::exigirLogin();
+            $route->autenticarUsuario();
+        break;
+
         default:
             $route->index();
         break;

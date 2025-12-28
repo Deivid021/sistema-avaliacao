@@ -17,14 +17,13 @@ class LoginController {
 
         $admin = Admin::buscarPorUsuario($user);
 
-        if ($admin && password_verify($pass, $admin['pass'])) {
+        if ($admin && password_verify($pass, $admin['senha'])) {
         
             header("Location: app/views/admin/perguntas/listar.php");
             exit;
         } 
         
-        // header("Location: /admin.php?route=login&erro=1");
-        echo 'sou burro';
+        header("Location: /../../admin.php?route=login&erro=1");
         exit;
     }
 }

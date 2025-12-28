@@ -8,6 +8,10 @@
 
 <h2>Login do Administrador</h2>
 
+<?php if (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
+    <p style="color:red;">Usuário ou senha inválidos</p>
+<?php endif; ?>
+
 <form action="/../../admin.php?route=login/autenticar" method="post">
     <input type="user" name="user" placeholder="User" required><br><br>
     <input type="password" name="pass" placeholder="Senha" required><br><br>
