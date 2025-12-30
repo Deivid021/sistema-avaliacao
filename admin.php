@@ -1,20 +1,45 @@
 <?php
 require_once __DIR__ . '/app/core/Auth.php';
+
+// controllers
 require_once __DIR__ . '/app/controllers/admin/PerguntaController.php';
 require_once __DIR__ . '/app/controllers/admin/LoginController.php';
+require_once __DIR__ . '/app/controllers/admin/UsuarioController.php';
 
-// Auth::exigirLogin();
+$route = $_GET['route'] ?? 'login';
 
-$route = new LoginController();
+    switch ($route) {
+        case 'login':
+            $controller = new LoginController();
+            $controller->index();
+        break;
 
-    switch ($_GET['route'] ?? 'login') {
         case 'login/autenticar':
-            $route->autenticarUsuario();
+            $controller = new LoginController();
+            $controller->autenticarUsuario();
         break;
 
         case 'dashboard':
             Auth::exigirLogin();
             $route->autenticarUsuario();
+        break;
+
+        case 'usuario/listar':
+            Auth::exigirLogin();
+            $controller = new UsuarioController();
+            $controller->listarUsuario();
+        break;
+
+        case 'usuario/criar':
+            Auth::exigirLogin();
+            $controller = new UsuarioController();
+            $controller->criarUsuario();
+        break;
+
+        case 'usuario/inserir':
+            Auth::exigirLogin();
+            $controller = new UsuarioController();
+            $controller->inserirUsuario();
         break;
 
         default:

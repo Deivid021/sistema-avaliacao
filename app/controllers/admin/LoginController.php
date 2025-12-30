@@ -19,6 +19,7 @@ class LoginController {
 
         if ($admin && password_verify($pass, $admin['senha'])) {
         
+            Auth::logar($admin['id']);
             header("Location: app/views/admin/perguntas/listar.php");
             exit;
         } 
