@@ -43,7 +43,8 @@ $route = $_GET['route'] ?? 'login';
         break;
 
         default:
-            $route->index();
+            $controller = new LoginController();
+            $controller->index();
         break;
     }
 

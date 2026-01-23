@@ -22,13 +22,14 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public static function inserirUsuario($usuario, $senha) {
+        public static function inserirUsuario($usuario, $senha, $acesso) {
             $conn = Conexao::getConexao();
 
-            $sql = "INSERT INTO usuario (usuario, senha) VALUES (':user', ':pass');";
+            $sql = "INSERT INTO usuario (usuario, senha, acesso) VALUES (:user, :pass, :access);";
             $stmt = $conn->prepare($sql);
             $stmt->execute([':user' => $usuario,
-                            ':pass' => $senha]);
+                            ':pass' => $senha,
+                            ':access' => $acesso]);
         }
     }
 ?> 

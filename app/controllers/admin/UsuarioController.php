@@ -13,7 +13,7 @@ class UsuarioController {
     }
 
     public function inserirUsuario() {
-        Admin::inserirUsuario($_POST['user'], $_POST['pass']);
+        Admin::inserirUsuario($_POST['user'], $_POST['pass'], $_POST['access']);
         header("Location: /admin.php?route=usuarios/listar");
     }
 }

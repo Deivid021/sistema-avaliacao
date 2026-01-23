@@ -5,7 +5,8 @@
     <title>Usuários - Administração</title>
 </head>
 <body>
-    
+    <a href="admin.php?route=usuario/criar">Criar</a>
+    <br>
 <table>
     <thead>
         <tr>ID</tr>
