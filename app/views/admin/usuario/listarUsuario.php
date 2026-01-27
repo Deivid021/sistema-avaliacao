@@ -21,9 +21,10 @@
                 <td><?= $p['id'] ?></td>
                 <td><?= $p['usuario'] ?></td>
                 <td><?= $p['senha'] ?></td>
+                <td><?= $p['acesso'] ?></td>
                 <td>
-                    <a href="admin.php?route=pergunta/editar&id=<?= $p['id'] ?>">Editar</a>
-                    <a href="admin.php?route=pergunta/excluir&id=<?= $p['id'] ?>"
+                    <a href="admin.php?route=usuario/editar&id=<?= $p['id'] ?>">Editar</a>
+                    <a href="admin.php?route=usuario/excluir&id=<?= $p['id'] ?>"
                         onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                 </td>
             </tr>

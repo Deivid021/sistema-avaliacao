@@ -13,7 +13,25 @@ class UsuarioController {
     }
 
     public function inserirUsuario() {
-        Admin::inserirUsuario($_POST['user'], $_POST['pass'], $_POST['access']);
-        header("Location: /admin.php?route=usuarios/listar");
+
+        $senhaCriptografada = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+
+        Admin::inserirUsuario($_POST['user'], $senhaCriptografada, $_POST['access']);
+        header("Location: /admin.php?route=usuario/listar");
+        exit;
+    }
+    
+    public function deletarUsuario() {
+        
+        $id = $_GET['id'] ?? null;
+
+        if(Admin::contarUsuario() > 1) {
+
+            Admin::deletarUsuario($id);
+            header("Location: /admin.php?route=usuario/listar"); 
+            exit;
+        }
+        
+        header("Location: /admin.php?route=usuario/listar"); 
     }
 }

@@ -19,10 +19,10 @@ $route = $_GET['route'] ?? 'login';
             $controller->autenticarUsuario();
         break;
 
-        case 'dashboard':
-            Auth::exigirLogin();
-            $route->autenticarUsuario();
-        break;
+        // case 'dashboard':
+        //     Auth::exigirLogin();
+        //     $route->autenticarUsuario();
+        // break;
 
         case 'usuario/listar':
             Auth::exigirLogin();
@@ -40,6 +40,12 @@ $route = $_GET['route'] ?? 'login';
             Auth::exigirLogin();
             $controller = new UsuarioController();
             $controller->inserirUsuario();
+        break;
+
+        case 'usuario/excluir':
+            Auth::exigirLogin();
+            $controller = new UsuarioController();
+            $controller->deletarUsuario();
         break;
 
         default:
