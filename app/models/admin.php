@@ -32,6 +32,17 @@
                             ':access' => $acesso]);
         }
 
+        public static function editarUsuario($id, $usuario, $senha, $acesso) {
+            $conn = Conexao::getConexao();
+
+            $sql = "UPDATE usuario SET usuario = :user, senha = :pass, acesso = :access WHERE id = :id;";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([':id' => $id,
+                            ':user' => $usuario,
+                            ':pass' => $senha,
+                            ':access' => $acesso]);
+        }
+
         public static function deletarUsuario($id) {
             $conn = Conexao::getConexao();
             
@@ -48,6 +59,17 @@
             $stmt->execute();
 
             return $stmt->fetchColumn();
+        }
+
+        public static function buscarPorId($id) {
+            $conn = Conexao::getConexao();
+
+            $sql = "SELECT id, usuario, acesso FROM usuario WHERE id = :id;";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         }
     }
 ?> 

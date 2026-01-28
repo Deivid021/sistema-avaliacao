@@ -42,6 +42,18 @@ $route = $_GET['route'] ?? 'login';
             $controller->inserirUsuario();
         break;
 
+        case 'usuario/editar':
+            Auth::exigirLogin();
+            $controller = new UsuarioController();
+            $controller->editarUsuario();
+        break;
+
+        case 'usuario/atualizar':
+            Auth::exigirLogin();
+            $controller = new UsuarioController();
+            $controller->atualizarUsuario();
+        break;
+
         case 'usuario/excluir':
             Auth::exigirLogin();
             $controller = new UsuarioController();

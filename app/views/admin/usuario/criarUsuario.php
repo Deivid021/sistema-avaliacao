@@ -12,7 +12,7 @@
     <input type="text" name="user" id="user" required>
     <br>
     <label>Senha:</label><br>
-    <input type="text" name="pass" id="pass" required>
+    <input type="password" name="pass" id="pass" required>
     <br>
     <label>Acesso:</label>
     <br>
