@@ -1,4 +1,5 @@
 CREATE DATABASE sistema_avaliacao;
+\c sistema_avaliacao;
 
 CREATE TABLE setor (
     id SERIAL PRIMARY KEY,
@@ -16,7 +17,7 @@ CREATE TABLE pergunta (
     id SERIAL PRIMARY KEY,
     texto TEXT NOT NULL,
     status SMALLINT DEFAULT 0,
-    ordem SMALLINT
+	ordem SMALLINT NOT NULL UNIQUE
 );
 
 CREATE TABLE avaliacao (
@@ -31,12 +32,14 @@ CREATE TABLE avaliacao (
 CREATE TABLE usuario (
     id SERIAL PRIMARY KEY,
     login VARCHAR(50) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL
+    senha VARCHAR(255) NOT NULL,
+	acesso SMALLINT NOT NULL
 );
 
-INSERT INTO pergunta (texto, status, ordem) 
+	INSERT INTO pergunta (texto, status, ordem) 
      VALUES ('Em uma escala de 1 a 10 quanto você recomendaria a um amigo ou familiar?', 1, 1),
-            ('Em uma escala de 1 a 10 quanto gostou dos nossos serviços?', 1, 2);
+            ('Em uma escala de 1 a 10 quanto gostou dos nossos serviços?', 1, 2)
 
-INSERT INTO usuario (login, senha) 
-     VALUES ('admin', 'adm');
+
+INSERT INTO usuario (login, senha, acesso) 
+     VALUES ('admin', 'adm', 1);
